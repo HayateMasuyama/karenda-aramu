@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <button onclick="location.href='alarm.html'">アラームを設定する</button>
+
+  <title>祝日カレンダー</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      width: 14.28%;
+      height: 80px;
+      text-align: center;
+      vertical-align: top;
+    }
+    .holiday {
+      color: red;
+    }
+    .today {
+      background-color: #ffdcdc;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>2025年5月カレンダー</h1>
+    <button onclick="location.href='alarm.html'">アラームを設定する</button>
+  </div>
+
+  <table>
+    <tr>
+      <th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+    </tr>
+    <tr>
+      <td class="holiday">27</td><td>28</td><td>29</td><td>30</td><td>1</td><td>2</td><td>3</td>
+    </tr>
+    <tr>
+      <td class="holiday today">4 みどりの日</td><td>5 こどもの日</td><td>6 振替休日</td><td>7</td><td>8</td><td>9</td><td>10</td>
+    </tr>
+    <tr>
+      <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td>
+    </tr>
+    <tr>
+      <td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td>
+    </tr>
+    <tr>
+      <td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
+    </tr>
+  </table>
+
+  <script>
+    // 今日の日付をハイライトする
+    const today = new Date();
+    if (today.getFullYear() === 2025 && today.getMonth() === 4) {
+      const day = today.getDate();
+      const cells = document.querySelectorAll("td");
+      cells.forEach(cell => {
+        if (cell.textContent.includes(day)) {
+          cell.classList.add("today");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
